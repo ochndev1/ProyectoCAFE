@@ -9,6 +9,7 @@ package proyectocafe;
  *
  * @author Hannibal
  */
-public class BebidasCalientes {
+public class CamareroBebidasCalientes {
+    
     
 }
