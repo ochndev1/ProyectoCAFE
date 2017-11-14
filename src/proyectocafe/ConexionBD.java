@@ -42,4 +42,16 @@ public class ConexionBD {
         
     }
     
+    public void incio_transaccion() throws SQLException{
+        conn.setAutoCommit(false);
+    }
+    
+    public void fin_transaccion_commit() throws SQLException{
+        conn.commit();
+    }
+    
+    public void fin_transaccion_rollback() throws SQLException{
+        conn.rollback();
+    }
+    
 }
