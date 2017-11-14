@@ -10,7 +10,8 @@ package proyectocafe;
  * @author Hannibal
  */
 public class Bebida {
-        String nombre;
+    
+    String nombre;
     String tipo;
     boolean disponible;
     
