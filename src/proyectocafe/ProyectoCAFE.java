@@ -5,6 +5,8 @@
  */
 package proyectocafe;
 
+import org.w3c.dom.Document;
+
 /**
  *
  * @author Hannibal
@@ -16,12 +18,15 @@ public class ProyectoCAFE {
      */
     public static void main(String[] args) {
         
+        //Objeto Controlador XML
+        ControladorXML conXML= new ControladorXML("src/FicheroEntrada/FicheroEntrada.xml");
+        
         ConexionBD CBD = new ConexionBD();
         
         CamareroBebidasCalientes CBB = new CamareroBebidasCalientes(CBD);        
         
         
-        
+        Document doc= conXML.LeerXML();
         
     }
     

@@ -8,6 +8,9 @@ package proyectocafe;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
@@ -23,24 +26,25 @@ public class ControladorXML {
     }
     
     public Document LeerXML(){
+        Document doc;
         
         try {
             File inputFile = new File(this.inputFile);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(inputFile);
-            doc.getDocumentElement().normalize();
-            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            NodeList nList = doc.getElementsByTagName("student");
-            System.out.println("----------------------------");
+            DocumentBuilder dBuilder;
+
+            dBuilder = dbFactory.newDocumentBuilder();
+
+            doc = dBuilder.parse(inputFile);
             
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
         
         
         
-        return null;
+        return doc;
     }
     
     public void EscribirXML(Document doc) {
