@@ -13,15 +13,20 @@ import java.sql.*;
  */
 public class CamareroBebidasCalientes {
     
-
+    ConexionBD con;
     
-    public boolean ConsultarDisponibilidad(Bebida bebida, Connection conn) throws SQLException{
+    public CamareroBebidasCalientes(ConexionBD con){
+        
+    }
+    
+    
+    public boolean ConsultarDisponibilidad(Bebida bebida, ConexionBD con) throws SQLException{
         
         
         int numero = 0;
         String consulta = "SELECT COUNT(*) FROM BEBIDA WHERE nombre = '"+bebida.nombre+"' AND tipo = 'hot'";        
         
-        Statement stmt = conn.createStatement();
+        Statement stmt = con.conn.createStatement();
         
         ResultSet RS = stmt.executeQuery(consulta);
         

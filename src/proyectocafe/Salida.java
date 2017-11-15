@@ -7,9 +7,9 @@ package proyectocafe;
 
 /**
  *
- * @author Hannibal
+ * @author usuario
  */
-public class Merge extends Router{
+public class Salida {
     
     
     
