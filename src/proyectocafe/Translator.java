@@ -11,4 +11,9 @@ package proyectocafe;
  */
 public class Translator extends Transformer {
     
+    public Translator(){
+        
+    }
+    
+    
 }

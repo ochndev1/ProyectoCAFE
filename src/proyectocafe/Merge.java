@@ -11,6 +11,9 @@ package proyectocafe;
  */
 public class Merge extends Router{
     
+    private Document doc;
+    
+    
     
     
 }
