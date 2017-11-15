@@ -5,19 +5,24 @@
  */
 package proyectocafe;
 
+import org.w3c.dom.Document;
+
 /**
  *
  * @author Hannibal
  */
 public class Filter extends Router{
     
-    private String xml;
     private String condicion;
+    private Slots in, out;
 
-    public Filter() {
+    public Filter(Document doc, Slots in, Slots out) {
+        
+        
+        
     }
     
-    public void Filtrar(String xml , String condicion){
+    public void Filtrar(int condicion){
         //Hace el proceso de filtrado
     }
     
