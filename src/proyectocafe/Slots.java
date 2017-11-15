@@ -5,23 +5,22 @@
  */
 package proyectocafe;
 
+import org.w3c.dom.Document;
+
 /**
  *
  * @author Hannibal
  */
 public class Slots {
-    private String xml;
-
-    public String getXml() {
-        return xml;
-    }
-
-    public void setXml(String xml) {
-        this.xml = xml;
-    }
-
-    public Slots(String xml) {
-        this.xml = xml;
-    }
     
+    private Document doc;   
+
+    Document getDocument() {
+        return doc;
+    }
+
+    void setDocument(Document doc) {
+        this.doc = doc;
+    }
+
 }
