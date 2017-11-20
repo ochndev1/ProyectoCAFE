@@ -27,11 +27,11 @@ public class Filter extends Router{
         this.out = out;       
         
         
-        XPath xpath = XPathFactory.newInstance().newXPath();
-        NodeList nodes = (NodeList)xpath.evaluate(condicionXPATH, doc.getDocumentElement(),XPathConstants.NODOSET);
-        for(int i = 0; i < nodes.getLength(); i++){
-            Element e = (Element) nodes.item(i);
-        }
+//        XPath xpath = XPathFactory.newInstance().newXPath();
+//        NodeList nodes = (NodeList)xpath.evaluate(condicionXPATH, doc.getDocumentElement(),XPathConstants.NODOSET);
+//        for(int i = 0; i < nodes.getLength(); i++){
+//            Element e = (Element) nodes.item(i);
+//        }
     }
     
     public void Filtrar (String condicion){

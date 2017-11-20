@@ -5,6 +5,8 @@
  */
 package proyectocafe;
 
+import org.w3c.dom.Document;
+
 /**
  *
  * @author Hannibal

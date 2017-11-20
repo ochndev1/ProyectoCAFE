@@ -5,6 +5,9 @@
  */
 package proyectocafe;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.transform.TransformerException;
 import org.w3c.dom.Document;
 
 /**
@@ -18,16 +21,20 @@ public class ProyectoCAFE {
      */
     public static void main(String[] args) {
         
-        //Objeto Controlador XML
-        ControladorXML conXML= new ControladorXML("src/FicheroEntrada/FicheroEntrada.xml");
-        
-        ConexionBD CBD = new ConexionBD();
-        
-        CamareroBebidasCalientes CBB = new CamareroBebidasCalientes(CBD);        
-        
-        
-        Document doc= conXML.LeerXML();
-        
+            //Objeto Controlador XML
+            ControladorXML conXML= new ControladorXML("src/FicheroEntrada/FicheroEntrada.xml");
+            
+            ConexionBD CBD = new ConexionBD();
+            
+            CamareroBebidasCalientes CBB = new CamareroBebidasCalientes(CBD);
+            
+            
+            Document doc= conXML.LeerXML();
+        try {    
+            conXML.EscribirXML(doc);
+        } catch (TransformerException ex) {
+            Logger.getLogger(ProyectoCAFE.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
