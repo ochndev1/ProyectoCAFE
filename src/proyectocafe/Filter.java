@@ -5,11 +5,18 @@
  */
 package proyectocafe;
 
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
@@ -51,6 +58,36 @@ public class Filter extends Router{
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Docfiltrado = dBuilder.newDocument();
             
+            //Preparacion para crear el nuevo documento con los datos filtrados
+            //Elemento raiz cafe_order
+            Element rootElement = Docfiltrado.createElement("cafe_order");
+            Docfiltrado.appendChild(rootElement);
+            
+            //Elemento order_id
+            Element order_id = Docfiltrado.createElement("order_id");
+            order_id.appendChild(Docfiltrado.createTextNode("2"));
+            rootElement.appendChild(order_id);
+            
+            
+            //Elemento drinks
+            Element drinksElement = Docfiltrado.createElement("drinks");
+            rootElement.appendChild(drinksElement);
+            
+            //Elemento drink
+            Element drinkElement = Docfiltrado.createElement("drink");
+            rootElement.appendChild(drinkElement);
+            
+            //Comprobacion
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(Docfiltrado);
+            
+            //Testing por fichero
+            StreamResult Result = new StreamResult(new File("src/FicheroSalida/FicherodePrueba.xml"));
+            transformer.transform(source, Result);
+            
+            
+            //Carga los nodos del documento doc para recorrerlo
             doc.getDocumentElement().normalize();
             NodeList nList = doc.getElementsByTagName("drink");
             
@@ -95,6 +132,10 @@ public class Filter extends Router{
             }
             
         } catch (ParserConfigurationException ex) {
+            Logger.getLogger(Filter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerConfigurationException ex) {
+            Logger.getLogger(Filter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
             Logger.getLogger(Filter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
