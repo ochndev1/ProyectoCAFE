@@ -30,6 +30,12 @@ public class ProyectoCAFE {
             
             
             Document doc= conXML.LeerXML();
+            
+            
+            Filter filtro= new Filter();
+            
+            filtro.Filtrar(doc, "hot");
+            
         try {    
             conXML.EscribirXML(doc);
         } catch (TransformerException ex) {
