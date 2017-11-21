@@ -15,7 +15,11 @@ public class Bebida {
     String tipo;
     boolean disponible;
     
-    Bebida(String nombre, String tipo, boolean disponible){
+    public Bebida () {
+        
+    }
+    
+    public Bebida(String nombre, String tipo, boolean disponible){
         this.nombre = nombre;
         this.tipo = tipo;
         this.disponible = disponible;

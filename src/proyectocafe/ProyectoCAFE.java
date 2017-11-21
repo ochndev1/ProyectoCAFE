@@ -5,6 +5,7 @@
  */
 package proyectocafe;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.TransformerException;
@@ -37,6 +38,12 @@ public class ProyectoCAFE {
             Document filtradoporHot, filtradoporCold;
             filtradoporHot = filtro.Filtrar(doc, "hot");
             filtradoporCold = filtro.Filtrar(doc, "cold");
+            
+            ArrayList<Bebida> listaBebida;
+            
+            Translator translator = new Translator();
+            
+            listaBebida = translator.traductor(doc);
             
         try {    
             conXML.EscribirXML(doc);
