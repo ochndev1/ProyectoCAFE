@@ -34,7 +34,9 @@ public class ProyectoCAFE {
             
             Filter filtro= new Filter();
             
-            filtro.Filtrar(doc, "hot");
+            Document filtradoporHot, filtradoporCold;
+            filtradoporHot = filtro.Filtrar(doc, "hot");
+            filtradoporCold = filtro.Filtrar(doc, "cold");
             
         try {    
             conXML.EscribirXML(doc);
